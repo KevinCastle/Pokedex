@@ -38,10 +38,32 @@
   </main>
 </template>
 
-<script setup lang="ts">
+<script lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import { PhCaretCircleRight, PhCaretCircleLeft } from '@phosphor-icons/vue'
+import { onMounted } from 'vue'
 import TeamBox from './components/TeamBox.vue'
+import { usePokedexStore } from './stores/pokedexStore'
+
+export default {
+  components: {
+    PhCaretCircleRight,
+    PhCaretCircleLeft,
+    TeamBox
+  },
+  setup() {
+    const pokedexStore = usePokedexStore()
+
+    onMounted(async () => {
+      await pokedexStore.getPokemonTeam()
+    })
+
+    return {
+      RouterLink,
+      RouterView
+    }
+  }
+}
 </script>
 
 <style scoped>
