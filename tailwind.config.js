@@ -3,8 +3,10 @@ export default {
   purge: ['./index.html', './src/**/*.{vue,js,ts}'],
   content: [],
   theme: {
-    extend: {},
+    fontFamily: {
+      sans: ['Poppins', 'Sans-serif']
+    },
+    extend: {}
   },
-  plugins: [],
+  plugins: []
 }
-
