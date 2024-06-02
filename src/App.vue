@@ -3,9 +3,17 @@
     <div class="pokeball h-56 mb-20">
       <div class="container">
         <nav class="pt-8">
-          <RouterLink class="flex flex-col items-center" to="/team">
+          <RouterLink class="flex flex-col items-center group relative" to="/team">
             <TeamBox />
-            <span class="bg-slate-100 py-2 px-8 rounded-b-2xl relative -top-6">Go to team</span>
+            <span
+              class="bg-red-300 text-red-100 group-hover:text-white py-2 px-8 rounded-b-2xl absolute -bottom-3 flex items-center transition-colors duration-150"
+              >Go to team
+              <PhCaretCircleRight
+                class="text-red-100 group-hover:text-white ms-2 transition-colors duration-150"
+                :size="24"
+                weight="fill"
+              />
+            </span>
           </RouterLink>
         </nav>
       </div>
@@ -17,6 +25,7 @@
 
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+import { PhCaretCircleRight } from '@phosphor-icons/vue'
 import TeamBox from './components/TeamBox.vue'
 </script>
 
@@ -33,7 +42,7 @@ header::before {
   width: 140px;
   height: 140px;
   background: #f1f5f9;
-  border: 4px solid #334155;
+  border: 16px solid #334155;
   border-radius: 50%;
   z-index: 10;
 }
@@ -75,7 +84,7 @@ header::after {
   left: -2px;
   right: -2px;
   bottom: -2px;
-  clip-path: ellipse(76% 100% at 50% -8px);
+  clip-path: ellipse(76% 100% at 50% -24px);
   background: #991b1b;
   z-index: -1;
 }
