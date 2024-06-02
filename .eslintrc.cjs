@@ -7,9 +7,18 @@ module.exports = {
     'eslint:recommended',
     '@vue/eslint-config-typescript',
     '@vue/airbnb',
-    '@vue/eslint-config-prettier'
+    '@vue/eslint-config-prettier',
+    'plugin:import/typescript'
   ],
   parserOptions: {
     ecmaVersion: 'latest'
+  },
+  rules: {
+    'import/extensions': 0
+  },
+  settings: {
+    'import/resolver': {
+      typescript: {}
+    }
   }
 }
