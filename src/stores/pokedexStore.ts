@@ -5,18 +5,24 @@ import { getPokedexList } from '@/api/pokeApi'
 export const usePokedexStore = defineStore({
   id: 'pokedexStore',
   state: () => ({
+    loading: false,
+    counter: 0,
     pokedex: {
       pokemons: [] as PokemonSummary[]
     } as PokedexResponse
   }),
   actions: {
-    async getPokedexData() {
+    async getPokedexData(quantity: number) {
       try {
-        this.pokedex = await getPokedexList(0, 150)
-        console.log(this.pokedex)
+        this.loading = true
+        const pokemonList = await getPokedexList(this.counter, quantity)
+        this.pokedex.pokemons = [...this.pokedex.pokemons, ...pokemonList.pokemons]
       } catch (error) {
         console.error(error)
         // handle the error appropriately
+      } finally {
+        this.counter += quantity
+        this.loading = false
       }
     }
   }

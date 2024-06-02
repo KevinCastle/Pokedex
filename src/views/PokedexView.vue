@@ -1,6 +1,6 @@
 <template>
   <article class="container pt-4 pb-8">
-    <section v-if="pokedex" class="flex gap-4 flex-wrap justify-center">
+    <section v-if="pokedex" ref="scrollInfinite" class="flex gap-4 flex-wrap justify-center">
       <div
         v-for="pokemon in pokedex.pokemons"
         :key="pokemon.name"
@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts">
-import { computed, onMounted } from 'vue'
+import { computed, onMounted, onUnmounted, ref } from 'vue'
 import { usePokedexStore } from '@/stores/pokedexStore'
 import typesColors from '@/constants'
 
@@ -30,14 +30,30 @@ export default {
   setup() {
     const pokedexStore = usePokedexStore()
     const pokedex = computed(() => pokedexStore.pokedex)
+    const scrollInfinite = ref<HTMLElement | null>(null)
+
+    const handleScroll = async () => {
+      const pokedexList = scrollInfinite.value
+      if (!pokedexStore.loading && pokedexList && pokedexStore.counter < 150) {
+        if (pokedexList.getBoundingClientRect().bottom < window.innerHeight) {
+          await pokedexStore.getPokedexData(25)
+        }
+      }
+    }
 
     onMounted(async () => {
-      await pokedexStore.getPokedexData()
+      await pokedexStore.getPokedexData(25)
+      await window.addEventListener('scroll', handleScroll)
+    })
+
+    onUnmounted(() => {
+      window.removeEventListener('scroll', handleScroll)
     })
 
     return {
       pokedex,
-      typesColors
+      typesColors,
+      scrollInfinite
     }
   }
 }
