@@ -69,8 +69,9 @@ export default {
           pokedexStore.removePokemonFromTeam(pokemon)
         }
       } else if (!team.value.some((member) => member.id === pokemon.id)) {
-        // SHOW ERROR MESSAGE
+        pokedexStore.error = 'You can only have 6 Pokémon in your team!'
       } else {
+        pokedexStore.error = null
         pokedexStore.removePokemonFromTeam(pokemon)
       }
     }
