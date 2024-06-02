@@ -3,6 +3,7 @@
     <HeaderComponent />
 
     <RouterView />
+    <ErrorAlert />
   </main>
 </template>
 
@@ -10,11 +11,13 @@
 import { RouterLink, RouterView } from 'vue-router'
 import { onMounted } from 'vue'
 import HeaderComponent from './components/HeaderComponent.vue'
+import ErrorAlert from './components/ErrorAlert.vue'
 import { usePokedexStore } from './stores/pokedexStore'
 
 export default {
   components: {
-    HeaderComponent
+    HeaderComponent,
+    ErrorAlert
   },
   setup() {
     const pokedexStore = usePokedexStore()
