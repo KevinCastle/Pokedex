@@ -1,39 +1,41 @@
 <template>
-  <header class="w-full relative z-10">
-    <div class="pokeball h-56 mb-20">
-      <div class="container">
-        <nav class="pt-8">
-          <RouterLink to="/" class="flex flex-col items-center group relative">
-            <TeamBox />
-            <span
-              class="bg-red-300 text-red-100 group-hover:text-white py-2 px-8 rounded-b-2xl absolute -bottom-3 flex items-center transition-colors duration-150"
-            >
-              <PhCaretCircleLeft
-                class="text-red-100 group-hover:text-white ms-2 transition-colors duration-150"
-                :size="24"
-                weight="fill"
-              />
-              Go to Pokedex
-            </span>
-          </RouterLink>
-          <RouterLink to="/team" class="flex flex-col items-center group relative">
-            <TeamBox />
-            <span
-              class="bg-red-300 text-red-100 group-hover:text-white py-2 px-8 rounded-b-2xl absolute -bottom-3 flex items-center transition-colors duration-150"
-              >Go to team
-              <PhCaretCircleRight
-                class="text-red-100 group-hover:text-white ms-2 transition-colors duration-150"
-                :size="24"
-                weight="fill"
-              />
-            </span>
-          </RouterLink>
-        </nav>
+  <main class="bg-slate-200 min-h-dvh">
+    <header class="w-full relative z-10">
+      <div class="pokeball h-56 mb-20">
+        <div class="container">
+          <nav class="pt-8">
+            <RouterLink to="/" class="flex flex-col items-center group relative">
+              <TeamBox />
+              <span
+                class="bg-red-300 text-red-100 group-hover:text-white py-2 px-8 rounded-b-2xl absolute -bottom-3 flex items-center transition-colors duration-150"
+              >
+                <PhCaretCircleLeft
+                  class="text-red-100 group-hover:text-white ms-2 transition-colors duration-150"
+                  :size="24"
+                  weight="fill"
+                />
+                Go to Pokedex
+              </span>
+            </RouterLink>
+            <RouterLink to="/team" class="flex flex-col items-center group relative">
+              <TeamBox />
+              <span
+                class="bg-red-300 text-red-100 group-hover:text-white py-2 px-8 rounded-b-2xl absolute -bottom-3 flex items-center transition-colors duration-150"
+                >Go to team
+                <PhCaretCircleRight
+                  class="text-red-100 group-hover:text-white ms-2 transition-colors duration-150"
+                  :size="24"
+                  weight="fill"
+                />
+              </span>
+            </RouterLink>
+          </nav>
+        </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <RouterView />
+    <RouterView />
+  </main>
 </template>
 
 <script setup lang="ts">
