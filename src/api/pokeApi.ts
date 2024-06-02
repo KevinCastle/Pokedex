@@ -26,6 +26,7 @@ export async function getPokedexList(offset = 0, limit = 25): Promise<PokedexRes
             id: pokemonResponse.data.id,
             art:
               pokemonResponse.data.sprites.other?.['official-artwork'].front_default ?? undefined,
+            sprite: pokemonResponse.data.sprites.front_default ?? undefined,
             type: pokemonResponse.data.types.find((type) => type.slot === 1)?.type.name
           }
         } catch (error) {

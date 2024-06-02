@@ -15,6 +15,7 @@ export type PokemonSummary = {
   name: string
   id: number
   art: string | undefined
+  sprite: string | undefined
   type: string | undefined
 }
 

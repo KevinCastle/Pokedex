@@ -9,7 +9,8 @@ export const usePokedexStore = defineStore({
     counter: 0,
     pokedex: {
       pokemons: [] as PokemonSummary[]
-    } as PokedexResponse
+    } as PokedexResponse,
+    team: [] as PokemonSummary[]
   }),
   actions: {
     async getPokedexData(quantity: number) {
@@ -24,6 +25,27 @@ export const usePokedexStore = defineStore({
         this.counter += quantity
         this.loading = false
       }
+    },
+    getPokemonTeam() {
+      const storedTeam = localStorage.getItem('team')
+      if (storedTeam) this.team = JSON.parse(storedTeam)
+      return this.team
+    },
+    addPokemonToTeam(pokemon: PokemonSummary) {
+      if (this.team.length >= 6) return
+      this.team.push(pokemon)
+      localStorage.setItem('team', JSON.stringify(this.team))
+    },
+    removePokemonFromTeam(pokemon: PokemonSummary) {
+      if (this.team.length <= 0) return
+      const memberPosition = this.team.findIndex((member) => member.id === pokemon.id)
+      this.team.splice(memberPosition, 1)
+      localStorage.setItem('team', JSON.stringify(this.team))
+    }
+  },
+  getters: {
+    getPokemonById: () => {
+      // return this.pokedex.pokemons.find((pokemon) => pokemon.id === id)
     }
   }
 })
