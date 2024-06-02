@@ -63,7 +63,13 @@ export default {
 
     const handlePokemon = (pokemon: PokemonSummary) => {
       if (team.value.length < 6) {
-        pokedexStore.addPokemonToTeam(pokemon)
+        if (!team.value.some((member) => member.id === pokemon.id)) {
+          pokedexStore.addPokemonToTeam(pokemon)
+        } else {
+          pokedexStore.removePokemonFromTeam(pokemon)
+        }
+      } else if (!team.value.some((member) => member.id === pokemon.id)) {
+        // SHOW ERROR MESSAGE
       } else {
         pokedexStore.removePokemonFromTeam(pokemon)
       }
