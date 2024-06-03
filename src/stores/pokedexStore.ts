@@ -40,16 +40,11 @@ export const usePokedexStore = defineStore({
       this.team.push(pokemon)
       localStorage.setItem('team', JSON.stringify(this.team))
     },
-    removePokemonFromTeam(pokemon: PokemonSummary) {
+    removePokemonFromTeam(id: number) {
       if (this.team.length <= 0) return
-      const memberPosition = this.team.findIndex((member) => member.id === pokemon.id)
+      const memberPosition = this.team.findIndex((member) => member.id === id)
       this.team.splice(memberPosition, 1)
       localStorage.setItem('team', JSON.stringify(this.team))
-    }
-  },
-  getters: {
-    getPokemonById: () => {
-      // return this.pokedex.pokemons.find((pokemon) => pokemon.id === id)
     }
   }
 })
