@@ -4,8 +4,6 @@ import TeamView from '../views/TeamView.vue'
 import PokemonDetailsView from '../views/PokemonDetailsView.vue'
 
 const router = createRouter({
-  linkActiveClass: 'hidden',
-  linkExactActiveClass: 'hidden',
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
