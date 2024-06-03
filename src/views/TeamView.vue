@@ -43,7 +43,7 @@
         <div
           v-for="pokemonType in pokemon.types"
           :key="pokemonType.slot"
-          class="w-24 py-2 px-4 mx-auto rounded-md text-white font-medium text-center"
+          class="w-24 py-2 px-4 mx-auto rounded-md text-white font-medium text-center capitalize"
           :style="{ backgroundColor: typesColors[pokemonType.type.name] }"
         >
           {{ pokemonType.type.name }}

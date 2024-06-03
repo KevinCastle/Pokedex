@@ -20,7 +20,9 @@
           height="100"
           class="relative z-10"
         />
-        <p class="text-center pt-2 font-semibold text-white">{{ pokemon.name }}</p>
+        <p class="text-center pt-2 font-semibold text-white text-xl capitalize">
+          {{ pokemon.name }}
+        </p>
       </button>
     </section>
   </article>

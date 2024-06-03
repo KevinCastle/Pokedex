@@ -69,9 +69,20 @@ export async function getPokemonById(id: number): Promise<Pokemon> {
   }
 }
 
-export async function getEvolutionChain(id: number): Promise<EvolutionResponse> {
+export async function getEvolutionChain(evolutionChainUrl: string): Promise<EvolutionResponse> {
   try {
-    const response = await axios.get<EvolutionResponse>(`${url}evolution-chain/${id}`)
+    const response = await axios.get<EvolutionResponse>(`${evolutionChainUrl}`)
+
+    return response.data
+  } catch (error) {
+    console.error(`Failed to fetch data for evolution chain`, error)
+    throw error
+  }
+}
+
+export async function getPokemonSpeciesById(id: number): Promise<SpeciesResponse> {
+  try {
+    const response = await axios.get<SpeciesResponse>(`${url}pokemon-species/${id}`)
 
     return response.data
   } catch (error) {
@@ -80,7 +91,7 @@ export async function getEvolutionChain(id: number): Promise<EvolutionResponse> 
   }
 }
 
-export async function getPokemonSpecies(speciesUrl: string): Promise<SpeciesResponse> {
+export async function getPokemonSpeciesByUrl(speciesUrl: string): Promise<SpeciesResponse> {
   try {
     const response = await axios.get<SpeciesResponse>(`${speciesUrl}`)
 

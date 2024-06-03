@@ -3,7 +3,11 @@
     <div class="pokeball h-56 w-full mb-20">
       <div class="container">
         <nav class="pt-8">
-          <RouterLink to="/" class="flex flex-col items-center group relative">
+          <RouterLink
+            v-if="route.path !== '/'"
+            to="/"
+            class="flex flex-col items-center group relative"
+          >
             <TeamBox />
             <span
               class="bg-red-300 text-red-100 group-hover:text-white py-2 px-8 rounded-b-2xl absolute -bottom-3 flex items-center transition-colors duration-150"
@@ -16,7 +20,11 @@
               Go to Pokedex
             </span>
           </RouterLink>
-          <RouterLink to="/team" class="flex flex-col items-center group relative">
+          <RouterLink
+            v-if="!route.path.startsWith('/team')"
+            to="/team"
+            class="flex flex-col items-center group relative"
+          >
             <TeamBox />
             <span
               class="bg-red-300 text-red-100 group-hover:text-white py-2 px-8 rounded-b-2xl absolute -bottom-3 flex items-center transition-colors duration-150"
@@ -38,6 +46,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { PhCaretCircleLeft, PhCaretCircleRight } from '@phosphor-icons/vue'
+import { useRoute } from 'vue-router'
 import TeamBox from './TeamBox.vue'
 
 export default defineComponent({
@@ -47,7 +56,11 @@ export default defineComponent({
     TeamBox
   },
   setup() {
-    return {}
+    const route = useRoute()
+
+    return {
+      route
+    }
   }
 })
 </script>
