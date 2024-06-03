@@ -19,16 +19,16 @@ const router = createRouter({
     {
       path: '/team/:id',
       name: 'Pokemon details',
-      component: PokemonDetailsView
+      component: PokemonDetailsView,
+      beforeEnter: (to, from, next) => {
+        const id = Number(to.params.id)
+        if (Number.isNaN(id)) {
+          next('/team')
+        } else {
+          next()
+        }
+      }
     }
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   // route level code-splitting
-    //   // this generates a separate chunk (About.[hash].js) for this route
-    //   // which is lazy-loaded when the route is visited.
-    //   component: () => import('../views/AboutView.vue')
-    // }
   ]
 })
 
