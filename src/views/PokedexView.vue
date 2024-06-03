@@ -66,13 +66,13 @@ export default {
         if (!team.value.some((member) => member.id === pokemon.id)) {
           pokedexStore.addPokemonToTeam(pokemon)
         } else {
-          pokedexStore.removePokemonFromTeam(pokemon)
+          pokedexStore.removePokemonFromTeam(pokemon.id)
         }
       } else if (!team.value.some((member) => member.id === pokemon.id)) {
         pokedexStore.error = 'You can only have 6 Pokémon in your team!'
       } else {
         pokedexStore.error = null
-        pokedexStore.removePokemonFromTeam(pokemon)
+        pokedexStore.removePokemonFromTeam(pokemon.id)
       }
     }
 
