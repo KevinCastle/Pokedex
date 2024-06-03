@@ -1,10 +1,3 @@
-<!--
-○ Mostrar su stats (con gráfico),
-○ Se deben poder eliminar individualmente del equipo
-○ Al hacer click en un Pokémon debe enviar a la vista /team/:id
-para ver el detalle de ese Pokémon
--->
-
 <template>
   <article class="container pt-4 pb-4 flex gap-4 overflow-x-auto">
     <section
