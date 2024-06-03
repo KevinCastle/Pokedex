@@ -1,45 +1,33 @@
-# talana
+# # **Pokedex and team builder**
 
-This template should help get you started developing with Vue 3 in Vite.
+## **Description**
 
-## Recommended IDE Setup
+This project is a web application for managing and viewing Pokemon data. It uses the PokeAPI to fetch data and display it in a user-friendly interface. The application allows users to view detailed information about each Pokemon, and manage their team.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## **Technologies Used**
 
-## Type Support for `.vue` Imports in TS
+- **Vue.js**: A progressive JavaScript framework for building user interfaces.
+- **Vite**: A build tool that aims to provide a faster and leaner development experience for modern web projects.
+- **Tailwind CSS**: A utility-first CSS framework for rapidly building custom user interfaces.
+- **Axios**: A promise-based HTTP client for the browser and node.js.
+- **Pinia**: State management for Vue.js.
+- **Chart.js**: Simple yet flexible JavaScript charting for designers & developers.
+- **Vue Router**: The official router for Vue.js.
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
+## **How to Run the Project**
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+### **Start the development server**
 
 ```sh
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+**---**
 
-```sh
-npm run build
-```
+## **Deployment**
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+This project is deployed on Vercel. You can view the live version of the project [Clicking here](https://pokedex-two-ecru.vercel.app/).
